@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebaseauth.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Kanban Task Manager</h1>
+        <button id="signOutBtn" style="display: none;">Sign Out</button>
+    </header>
+
+    <!-- Reset Password Form (Hidden by Default) -->
+    <section id="resetPasswordForm" style="display: none;">
+        <h2>Reset Password</h2>
+        <input type="email" id="resetEmail" placeholder="Enter your email" required>
+        <button id="submitResetPassword">Reset Password</button>
+        <a href="#" id="backToSignIn">Back to Sign In</a>
+        <div id="resetPasswordMessage"></div>
+    </section>
+
+    <!-- Task Form -->
+    <section id="task-form">
+        <h2>Add Task</h2>
+        <input type="text" id="task-title" placeholder="Task Title" required>
+        <textarea id="task-desc" placeholder="Task Description"></textarea>
+        <input type="datetime-local" id="task-date">
+        <button id="add-task">Add Task</button>
+    </section>
+
+    <!-- Kanban Board -->
+    <section id="kanban-board">
+        <div class="column" id="todo">
+            <h2>To Do</h2>
+            <div class="task-list" data-status="todo"></div>
+        </div>
+        <div class="column" id="in-progress">
+            <h2>In Progress</h2>
+            <div class="task-list" data-status="in-progress"></div>
+        </div>
+        <div class="column" id="done">
+            <h2>Done</h2>
+            <div class="task-list" data-status="done"></div>
+        </div>
+    </section>
+
+    <!-- Progress Report -->
+    <section id="progress-report">
+        <h2>Progress Report</h2>
+        <canvas id="taskChart"></canvas>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
