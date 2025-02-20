@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebaseauth.js"></script>
+    <style>
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+            color: #aaa;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Reset Password Form -->
+    <div class="container" id="resetPasswordForm" style="display:none;">
+        <h1 class="form-title">Reset Password</h1>
+        <form method="post" action="">
+            <div id="resetPasswordMessage" class="messageDiv" style="display:none;"></div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="resetEmail" placeholder="Enter your email" required>
+            </div>
+
+            <button class="btn" id="submitResetPassword">Reset Password</button>
+        </form>
+
+        <div class="links">
+            <p>Remember your password?</p>
+            <button id="backToSignIn">Back to Sign In</button>
+        </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div class="container" id="signup" style="display:none;">
+        <h1 class="form-title">Register</h1>
+        <form method="post" action="">
+            <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="fName" placeholder="First Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="lName" placeholder="Last Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="rEmail" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="rPassword" placeholder="Password" required>
+            </div>
+
+            <button class="btn" id="submitSignUp">Sign Up</button>
+
+        </form>
+
+        <div class="links">
+            <p>Already Have Account?</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <!-- Sign In Form -->
+    <div class="container" id="signIn">
+        <h1 class="form-title">Sign In</h1>
+        <form method="post" action="">
+            <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <p class="recover">
+                <a href="#" id="forgotPasswordLink">Recover Password</a>
+            </p>
+
+            <button class="btn" id="submitSignIn">Sign In</button>
+        </form>
+
+        <div class="links">
+            <p>Don't have an account yet?</p>
+            <button id="signUpButton">Sign Up</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Toggle reset password form
+            document.getElementById("forgotPasswordLink").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("signIn").style.display = "none";
+                document.getElementById("resetPasswordForm").style.display = "block";
+            });
+
+            // Back to sign in
+            document.getElementById("backToSignIn").addEventListener("click", function (event) {
+                event.preventDefault();
+                document.getElementById("resetPasswordForm").style.display = "none";
+                document.getElementById("signIn").style.display = "block";
+            });
+
+            // Clear email/password fields after sign-out
+            if (window.location.search.includes("signout=true")) {
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+</body>
+</html>
