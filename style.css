@@ -1,0 +1,357 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f5f5f5; /* Light gray background */
+    color: #333; /* Dark text for better readability */
+}
+
+/* ------------------- SIGN-IN PAGE STYLES ------------------- */
+.container {
+    background: #fff;
+    width: 450px;
+    padding: 1.5rem;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 1.3rem;
+    margin-bottom: 0.4rem;
+    color: #333;
+}
+
+.input-group {
+    padding: 1% 0;
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    color: #333;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-group input {
+    color: inherit;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #757575;
+    padding-left: 1.5rem;
+    font-size: 15px;
+    position: relative;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-bottom: 2px solid #007bff; /* Blue focus border */
+}
+
+.input-group label {
+    color: #757575;
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem;
+    cursor: auto;
+    transition: 0.3s ease all;
+    font-size: 15px;
+}
+
+.input-group input:focus ~ label,
+.input-group input:not(:placeholder-shown) ~ label {
+    top: -1rem; /* Ensures the label moves above the input */
+    color: #007bff; /* Blue label color */
+    font-size: 13px; /* Slightly smaller for clarity */
+}
+
+.recover {
+    text-align: right;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.recover a {
+    text-decoration: none;
+    color: #007bff; /* Blue link color */
+}
+
+.recover a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    font-size: 1.1rem;
+    padding: 8px 0;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    width: 100%;
+    background: #007bff; /* Blue button */
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn:hover {
+    background: #0056b3; /* Darker blue on hover */
+}
+
+.or {
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    text-align: center;
+    color: #757575;
+}
+
+.icons {
+    text-align: center;
+}
+
+.icons i {
+    color: #007bff; /* Blue icons */
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 2px solid #dfe9f5;
+    margin: 0 15px;
+    transition: transform 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.icons i:hover {
+    background: #007bff; /* Blue background on hover */
+    color: white;
+    transform: scale(1.1);
+}
+
+.links {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4rem;
+    margin-top: 0.9rem;
+    font-weight: bold;
+}
+
+.links button {
+    color: #007bff; /* Blue button text */
+    border: none;
+    background-color: transparent;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.links button:hover {
+    text-decoration: underline;
+}
+
+.messageDiv {
+    background-color: #007bff; /* Blue message background */
+    color: white;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    display: none;
+}
+
+.messageDiv.show {
+    display: block;
+    opacity: 1;
+}
+
+/* ------------------- KANBAN TASK MANAGER STYLES ------------------- */
+header {
+    background-color: #f8f9fa; /* Light gray header */
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+header button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+header button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+header #signOutBtn {
+    display: block !important; /* Ensure the button is always visible */
+}
+
+#task-form {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+#task-form h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#task-form input,
+#task-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#task-form button {
+    background-color: #007bff; /* Blue button */
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#task-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#kanban-board {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.column h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.task-list {
+    min-height: 200px;
+    background-color: #ffffff; /* White background for tasks */
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.task {
+    background-color: #ffffff; /* White background for tasks */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: grab; /* Indicate draggable items */
+}
+
+.task:active {
+    cursor: grabbing; /* Change cursor when dragging */
+}
+
+.task h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.task p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.task select {
+    width: 100%;
+    padding: 0.25rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.task button {
+    background-color: #dc3545; /* Red button for delete */
+    color: white;
+    border: none;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.task button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+#progress-report {
+    background-color: #f8f9fa; /* Light gray background */
+    padding: 1rem;
+    margin: 1rem auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+}
+
+#progress-report h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+#taskChart {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #kanban-board {
+        flex-direction: column;
+    }
+
+    .column {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
